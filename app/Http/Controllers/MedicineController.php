@@ -19,6 +19,16 @@ class MedicineController extends Controller
         $this->medicineRepository = $medicineRepository;
     }
 
+    /**
+     * Serve the Blade template for adding medicine or analyzing images.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showAddForm()
+    {
+        return view('medicine.add');
+    }
+    
     public function addMedicine(Request $request)
     {
         $request->validate([
@@ -52,13 +62,6 @@ class MedicineController extends Controller
             'user_id'        => $user->id ?? null,
         ];
 
-// Debugging with dd (optional)
-// dd($data);
-
-// Assuming you're saving to the database, e.g., using Eloquent
-
-
-        // Save based on user role
         // if ($user->role === 'patient') {
         try{
             $medicine = Medicine::create($data);

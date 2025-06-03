@@ -26,11 +26,15 @@
 
 ### 💊 Medication Workflow Walkthrough
 **YouTube Video:** Patient and Shopkeeper demo
-Link - https://www.youtube.com/watch?v=ZIC_A7jSB-E
+Link - 
 
 ### 🧑‍⚕️ Patient Adding Medicine
 **Figure:** Real-time drug info fetch  with auto-fill  
-![Patient Demo](screenshots/ai-agent.png)
+![Patient Demo](screenshots/medicine.png)
+
+### 🧑‍⚕️ Patient Inquiring Symptopms
+**Figure:** Image and complain analysis with auto-fill  
+![Patient Demo](screenshots/symtomps.png)
 
 ### 🛒 Shopkeeper Stock Management
 **Figure:** Inventory add with auto-fill  
