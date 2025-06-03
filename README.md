@@ -1,61 +1,178 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# MediSin.ai
+
+![Laravel CI](https://github.com/ShaonMajumder/medisin/actions/workflows/ci.yml/badge.svg)
+[![codecov](https://codecov.io/gh/ShaonMajumder/medisin/branch/main/graph/badge.svg)](https://codecov.io/gh/ShaonMajumder/medisin)
+
+ An AI Agent powered, Pharmacy platform built to streamline medication ordering and management;  detailed drug information and reminders for patients.
+
+ ![Logo](public/logo.jpg)
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <a href="#demo">Demo</a> •
+  <a href="#features">Features</a> •
+  <a href="#tech-stack">Tech Stack</a> •
+  <a href="#testing">Well Tested</a> •
+  <a href="#system-design">System Design</a> •
+  <a href="#why-it-stands-out">Why it Stands Out</a> •
+  <a href="#notes">Notes</a> •
+  <a href="#pricing">Pricing</a> •
+  <a href="#license">License</a> •
+  <a href="#contribute">Contribute</a> •
+  <a href="#revenue">Revenue Model</a> •
+  <a href="#credit">Credit</a>
 </p>
 
-## About Laravel
+## 🚀 Demo
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### 💊 Medication Workflow Walkthrough
+**YouTube Video:** Patient and Shopkeeper demo
+Link - https://www.youtube.com/watch?v=ZIC_A7jSB-E
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🧑‍⚕️ Patient Adding Medicine
+**Figure:** Real-time drug info fetch  with auto-fill  
+![Patient Demo](screenshots/patient-medicine-box.gif)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🛒 Shopkeeper Stock Management
+**Figure:** Inventory add with auto-fill  
+![Stock Demo](screenshots/shopkeeper-stock.gif)
 
-## Learning Laravel
+### ✅ Continuous Integration (CI) with GitHub Actions
+**Figure:** PHPUnit test on push with Codecov  
+![CI Demo](screenshots/ci-demo.gif)
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+➡️ Config: `.github/workflows/laravel.yml`
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## <a id="features"></a>🎯 Features for Users
 
-## Laravel Sponsors
+- **👨‍⚕️ Patient Medicine Box**  
+  Allows patients to add medications, confirm details from AI results, and save them securely.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- **🏪 Shopkeeper Stock Panel**  
+  Shopkeepers manage inventory with quantity and API-based medicine verification.
 
-### Premium Partners
+- **🤖 AI Agent Integration**  
+  A built-in AI agent intelligently fetches, analyzes, and auto-populates medicine information.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## <a id="tech-stack"></a>🧰 Tech Stack
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| Area                | Technologies Used                                |
+|---------------------|--------------------------------------------------|
+| **Frontend**        | Blade, JavaScript, FilamentPHP                   |
+| **Backend**         | Laravel (PHP), RESTful APIs                      |
+| **Authentication**  | JWT with Redis Blocklist                         |
+| **API Integration** | Gemini API                                       |
+| **Queue System**    | Laravel Queue, Redis                             |
+| **Database**        | MySQL                                            |
+| **Caching**         | Redis                                            |
+| **Testing**         | PHPUnit, GitHub CI, Codecov                      |
+| **Monitoring**      | Laravel Telescope                                |
+| **Deployment**      | Docker, Nginx, PHP-FPM                           |
+| **CI/CD**           | GitHub Actions                                   |
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## <a id="testing"></a>🧪 Testing Strategy
 
-## Security Vulnerabilities
+### ✅ Unit Testing
+- Covers:
+  - `MedicineController`
+  - `StockController`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### ✅ Integration Testing
+- Tests:
+  - Patient medicine addition flow
+  - Shopkeeper stock addition flow
+  - Auth routes (`/api/login`, `/api/me`, `/api/logout`)
 
-## License
+### ✅ CI Integration
+- Runs test suite and coverage checks on each PR via GitHub Actions and Codecov.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## <a id="system-design"></a>🧱 System Design
+
+- **API-First**: RESTful endpoints for Patients and Shopkeepers
+- **Microservice-Ready**: API service integration via service class layer
+- **Security**: JWT with Redis token invalidation and hourly rotation
+- **Scalability**: Horizontally scalable via Redis queue workers and container deployment
+
+---
+
+## <a id="why-it-stands-out"></a>⭐ Why it Stands Out
+
+- **AI Agent** auto-fills drug details reducing errors and manual entry
+- **Role-based Panels**: Separate views and data flows for Patients vs. Shopkeepers
+- **Test-Covered Code**: CI and coverage badges ensure safe contributions
+- **Dual Licensing**: Open-source core with commercial options for enterprise scale
+- A scalable, secure, and feature-rich
+
+---
+
+## <a id="notes"></a>📝 Notes
+
+- Laravel version: 11.x+
+- PHP version: 8.2+
+- FilamentPHP: Used for internal admin monitoring
+- Redis Queue: Required for optimal performance in production
+
+---
+
+## <a id="pricing"></a>💸 Pricing (Freemium Model)
+
+| Tier              | Features                                                                 | License         |
+|-------------------|--------------------------------------------------------------------------|------------------|
+| **Free Tier**     | Medicine Box, Stock Panel      | MIT License      |
+| **Premium Tier**  | Reminders, Analytics, Pharmacy Integrations                             | Proprietary      |
+| **Enterprise**    | Full source, Custom integrations, Commercial support                    | Commercial License |
+
+---
+
+## <a id="license"></a>📜 License
+
+The MediSin.ai platform operates under a freemium model with dual licensing to balance open-source accessibility with business protection.
+
+| Tier | Features | License | Terms |
+|------|----------|---------|-------|
+| **Free Tier** | - Medicine Box (Patients)<br>- Stock Management (Shopkeepers) | MIT License | Open-source; source code is freely available for use, modification, and distribution under the MIT License. |
+| **Premium Tier** | - Advanced analytics<br>- Automated reminders<br>- Pharmacy partnership integrations | Proprietary | Not open-source; these features are protected to support the business model and are accessible only through a paid subscription or commercial license. Contact the development team for pricing and terms. |
+| **Commercial License** | Entire platform (Free + Premium features) | Commercial License | Available for businesses seeking to use the entire platform without MIT obligations, deploy proprietary versions, or require custom integrations. Contact the development team for pricing and terms. |
+
+Community contributions to the Free tier are encouraged under MIT terms. See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on contributing to the open-source core.
+
+---
+
+## <a id="contribute"></a>🤝 Contribute
+
+1. Fork the repo
+2. Create feature branch: `git checkout -b feature/xyz`
+3. Commit: `git commit -m "Added xyz"`
+4. Push: `git push origin feature/xyz`
+5. PR to main
+
+See `CONTRIBUTING.md` for rules.
+
+---
+
+## <a id="revenue"></a>💰 Revenue Model
+
+The MediSin.ai platform leverages a freemium model to generate sustainable revenue while fostering an open-source community:
+
+- **Premium Subscriptions**: Revenue is primarily driven by subscriptions to the Premium tier, which includes features like advanced analytics, automated reminders, and pharmacy partnership integrations. These cater to pharmacies and power users, with pricing tailored to scale with usage (contact the development team for details).
+- **Commercial Licensing**: Enterprises requiring proprietary deployments or custom integrations (e.g., HIPAA compliance, dedicated clusters) can opt for a commercial license, providing flexibility without MIT obligations. This targets large-scale organizations and generates significant revenue through one-time or recurring fees.
+- **Future Monetization**: Planned additions include premium add-ons (e.g., medication tracking, user profiles) and API access for developers, further diversifying income streams while maintaining the Free tier’s accessibility.
+
+---
+
+## <a id="credit"></a>👨‍💻 Built & Maintained By
+
+👔 Ready to join a team building high-impact systems
+📨 Let’s connect for backend, DevOps, or system design roles
+
+**Shaon Majumder**  
+Senior Software Engineer  
+Open source contributor | Laravel ecosystem expert | System design advocate  
+🔗 [LinkedIn](https://linkedin.com/in/shaonmajumder) • [Portfolio](https://github.com/ShaonMajumder)
