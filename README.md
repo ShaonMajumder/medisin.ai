@@ -30,7 +30,7 @@ Link - https://www.youtube.com/watch?v=ZIC_A7jSB-E
 
 ### 🧑‍⚕️ Patient Adding Medicine
 **Figure:** Real-time drug info fetch  with auto-fill  
-![Patient Demo](screenshots/patient-medicine-box.gif)
+![Patient Demo](screenshots/ai-agent.png)
 
 ### 🛒 Shopkeeper Stock Management
 **Figure:** Inventory add with auto-fill  
