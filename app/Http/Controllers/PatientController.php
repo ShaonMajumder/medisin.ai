@@ -39,7 +39,7 @@ class PatientController extends Controller
             $symptoms = $request->input('symptoms', null);
 
             $imagePath = $this->patientAnalysisRepository->storeImage($image);
-
+// dd($imagePath);
             $analysis = $this->patientAnalysisRepository->analyzeImage($imagePath, $symptoms);
 // output:
 //             array:4 [ // app/Http/Controllers/PatientController.php:44
@@ -60,10 +60,6 @@ class PatientController extends Controller
 //     1 => "Apply cool compresses to the affected area."
 //     2 => "Consult a doctor for diagnosis and treatment options."
 //     3 => "Monitor for signs of a severe allergic reaction (difficulty breathing, swelling of the face/throat) and seek immediate medical attention if present."
-//   ]
-//   "suggested_generic_medicine" => array:2 [
-//     0 => "Antihistamines (e.g., cetirizine, loratadine, diphenhydramine)"
-//     1 => "Calamine lotion (for itch relief)"
 //   ]
 // ]
 

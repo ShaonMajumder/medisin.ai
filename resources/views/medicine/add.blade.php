@@ -52,8 +52,10 @@
         </form>
 
         <div id="symptomsDetails" class="symptoms-details">
+            <img id="analysis-image" src="" alt="Patient Analysis Image" style="max-width: 300px; margin-bottom: 20px;">
             <h2>Symptom Analysis Results</h2>
-            <p><strong>Symptoms:</strong> <span id="symptoms_input"></span></p>
+            <p><strong>Symptoms:</strong></p>
+            <ul id="symptoms_input"></ul>
             <p><strong>Possible Conditions:</strong></p>
             <ul id="possible_conditions"></ul>
             <p><strong>Recommended Actions:</strong></p>
@@ -248,6 +250,7 @@
             fetchBtn?.classList.remove('loading');
             symptomsBtn?.classList.remove('loading');
             confirmBtn?.classList.remove('loading');
+            document.getElementById('analysis-image').src = '';
         }
 
         // Display medicine details
@@ -266,7 +269,9 @@
 
         // Display symptom analysis results
         function displaySymptomsDetails(analysis) {
-            document.getElementById('symptoms_input').textContent = analysis.symptoms;
+            // console.log(analysis)
+            document.getElementById('analysis-image').src = '/'+ analysis.image_path;
+            document.getElementById('symptoms_input').innerHTML = analysis.analysis.symptoms.map(symptom => `<li>${symptom}</li>`).join('');
             const conditionsList = document.getElementById('possible_conditions');
             const actionsList = document.getElementById('recommended_actions');
             conditionsList.innerHTML = analysis.analysis.possible_conditions.map(condition => `<li>${condition}</li>`).join('');

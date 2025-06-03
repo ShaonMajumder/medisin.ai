@@ -8,6 +8,10 @@ use Gemini\Laravel\Facades\Gemini;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
+use Gemini\Data\GenerationConfig;
+use Gemini\Data\Schema;
+use Gemini\Enums\DataType;
+use Gemini\Enums\ResponseMimeType;
 
 class PatientAnalysisRepository
 {
@@ -48,6 +52,33 @@ class PatientAnalysisRepository
             }
 
             $result = Gemini::generativeModel(model: 'gemini-2.0-flash')
+                ->withGenerationConfig(
+                    generationConfig: new GenerationConfig(
+                        responseMimeType: ResponseMimeType::APPLICATION_JSON,
+                        responseSchema: new Schema(
+                            type: DataType::OBJECT,
+                            properties: [
+                                'symptoms' => new Schema(
+                                    type: DataType::ARRAY,
+                                    items: new Schema(type: DataType::STRING)
+                                ),
+                                'possible_conditions' => new Schema(
+                                    type: DataType::ARRAY,
+                                    items: new Schema(type: DataType::STRING)
+                                ),
+                                'recommended_actions' => new Schema(
+                                    type: DataType::ARRAY,
+                                    items: new Schema(type: DataType::STRING)
+                                ),
+                                // 'suggested_generic_medicine' => new Schema(
+                                //     type: DataType::ARRAY,
+                                //     items: new Schema(type: DataType::STRING)
+                                // ),
+                            ],
+                            required: ['symptoms', 'possible_conditions', 'recommended_actions'] // 'suggested_generic_medicine'
+                        )
+                    )
+                )
                 ->generateContent([
                     $prompt,
                     new Blob(
